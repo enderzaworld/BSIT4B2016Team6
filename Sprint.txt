@@ -1,0 +1,35 @@
+Reports
+- Statistical Report
+     - Business permit
+
+Users
+- CRUD
+- LOGIN
+
+Person
+- Barangay clearance(2-3 Days)
+- Cedula(15mins)
+- Indigency
+- TODA application form
+- Residential ID
+     - Credentials
+
+Payment
+- Direct Receiving
+
+
+PROJECT must be deployable
+
+Sprint 1
+- Users CRUD
+- Login
+- Residential ID
+
+Sprint 2
+- Barangay Clearance CRUD
+- Cedula CRUD
+- Reports
+
+Sprint 3
+- Indigency CRUD
+- TODA application form
