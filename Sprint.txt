@@ -33,3 +33,19 @@ Sprint 2
 Sprint 3
 - Indigency CRUD
 - TODA application form
+
+
+Never say never to master. 
+
+Github Keywords
+
+git clone "Repository link" - get repository (REMOTE GIT URL)
+git checkout - checkout branch - either -b / <branch name> <remote/branch>
+git add - add files
+git commit -m "message" - 
+git push <remote><branchname> 
+git pull - update changes
+git merge <remote/branchname> 
+git remote <remote>
+git branch - list all branches
+git fetch 
