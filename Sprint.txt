@@ -1,6 +1,11 @@
 Reports
 - Statistical Report
-     - Business permit
+     - Barangay Clearance
+     - Indigency Form
+     - Cedula
+     - TODA Membership
+     - Residential ID
+- Audit Trail
 
 Users
 - CRUD
@@ -12,40 +17,23 @@ Person
 - Indigency
 - TODA application form
 - Residential ID
-     - Credentials
 
-Payment
-- Direct Receiving
+Sprint 1 - 1hr
+- Users(Admin/User) CRUD 5
+- Residential_ID 2  
+- Cedula CRUD 1
+- Barangay Clearance CRUD 5
 
+Sprint 2 - 1hr & 30mins
+- Audit Trail 5
+- Reports 8
 
-PROJECT must be deployable
+Sprint 3 -30mins
+- Indigency CRUD 2
+- TODA application form 5 
+- Login 1
+- Registration 3
 
-Sprint 1
-- Users CRUD
-- Login
-- Residential ID
+Dec 10 - Project
 
-Sprint 2
-- Barangay Clearance CRUD
-- Cedula CRUD
-- Reports
-
-Sprint 3
-- Indigency CRUD
-- TODA application form
-
-
-Never say never to master. 
-
-Github Keywords
-
-git clone "Repository link" - get repository (REMOTE GIT URL)
-git checkout - checkout branch - either -b / <branch name> <remote/branch>
-git add - add files
-git commit -m "message" - 
-git push <remote><branchname> 
-git pull - update changes
-git merge <remote/branchname> 
-git remote <remote>
-git branch - list all branches
-git fetch 
+Dec 17 - Sprint Report/Presentation/Retrospective
