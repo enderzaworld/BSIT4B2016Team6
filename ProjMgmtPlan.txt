@@ -1,0 +1,20 @@
+Sprint 1
+Login page(N)
+Admin Dashboard(A)
+User Creation Form(A)
+User Dashboard(U)
+
+Sprint 2
+Barangay Clearance Form(U)
+Indigency Form(U)
+TODA Form(U)
+Request Table(Forms)(A)
+
+Sprint 3
+Reports(A)
+Audit Trail(A)
+
+Resources:
+Bootstrap
+JQuery
+SMS Gateway
