@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<?php
+	if(isSet($_SESSION['user'])){
+	}	
+	if(!isSet($_SESSION['user'])){
+		header("Location:http://localhost/Helpdesk/Helpdesk.php");
+	}
+?>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Display Employees</title>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link href="css/sb-admin.css" rel="stylesheet">
+		<!-- Morris Charts CSS -->
+		<link href="css/plugins/morris.css" rel="stylesheet">
+		<!-- Custom Fonts -->
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="http://localhost/Helpdesk/views/DataTables-1.10.9/media/css/jquery.dataTables.css">
+		  
+		<!-- jQuery -->
+		<script type="text/javascript" charset="utf8" src="http://localhost/Helpdesk/views/DataTables-1.10.9/media/js/jquery.js"></script>
+		  
+		<!-- DataTables -->
+		<script type="text/javascript" charset="utf8" src="http://localhost/Helpdesk/views/DataTables-1.10.9/media/js/jquery.dataTables.js"></script>
+		
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Morris Charts JavaScript -->
+		<script src="js/plugins/morris/raphael.min.js"></script>
+		<script src="js/plugins/morris/morris.min.js"></script>
+		<script src="js/plugins/morris/morris-data.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<!-- Navigation -->
+			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<img class="pull-left" src="logo.png" />
+					<a class="navbar-brand" href="Helpdesk.php" style="color:white; text-shadow:-2px 2px 1px black;"><b>DEPARTMENT OF AGRICULTURE: HELPDESK</b></a>
+				</div>
+				<!-- Top Menu Items -->
+				<ul class="nav navbar-right top-nav">
+					<li class="dropdown">
+						<?php
+							if($newMsg>0){
+								echo '<a href="" class="dropdown-toggle" data-toggle="dropdown" style="color:white;"><i class="fa fa-envelope" style="color:red;"></i> <b class="caret" style="color:red;"></b></a>';
+							}
+							else{
+								echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;"><i class="fa fa-envelope"></i> <b class="caret"></b></a>';
+							}
+						?>
+						
+						<ul class="dropdown-menu message-dropdown">
+							<li class="message-preview">
+								<?php
+								$count=0;
+								foreach($message as $mssg){
+									echo '<a href="#">
+										<div class="media">
+											<span class="pull-left">
+												<img class="media-object" src="'.$mssg['dp'].'" alt="">
+											</span>
+											<div class="media-body">
+												<h5 class="media-heading"><strong>'.$mssg['fn'].' '.$mssg['ln'].'</strong>
+												</h5>
+												<p class="small text-muted"><i class="fa fa-clock-o"></i>'.$mssg['ts'].'</p>
+												<p>'.$mssg['msg'].'</p>
+											</div>
+										</div>
+									</a>';
+									
+									$count++;
+									if ($count == 2){
+										break;
+									}
+								}
+								?>
+							</li>
+							<li class="message-footer">
+								<a href="Helpdesk.php?action=displaymsg">Read All New Messages</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+							</li>
+							<li>
+								<a href="Helpdesk.php?action=displaymsg"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="logout.php" ><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav side-nav">
+						<li>
+							<a href="Helpdesk.php?action=home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+						</li>
+						<li class="active">
+							<a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-group"></i> Employees <i class="fa fa-fw fa-caret-down"></i></a>
+							<ul id="demo" class="collapse">
+								<li>
+									<a href="views/view_register.php" onclick="javascript:void window.open('views/view_register.php','1442587278159','width=600,height=500,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=0,left=0,top=0');return false; window.moveTo(500,100); window.focus(); ">Add Employees</a>
+								</li>
+								<li>
+									<a href="Helpdesk.php?action=display">Display Employees</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="Helpdesk.php?action=viewreq"><i class="fa fa-fw fa-wrench"></i> Technical Requests </a>
+						</li>
+						<li>
+							<a href="Helpdesk.php?action=displaymsg"><i class="fa fa-fw fa-envelope-o"></i> Messages </a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div class="row">
+						<div class="col-lg-12">
+							<h1 class="page-header">
+								Employees
+							</h1>
+							<ol class="breadcrumb">
+								<li class="active">
+									<i class="fa fa-dashboard"></i> Dashboard
+								</li>
+								<li class="active">
+									<i class="fa fa-fw fa-group"></i> Employees
+								</li>
+							</ol>
+						</div>
+					</div>
+					<!-- /.row -->
+
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-success">
+								<div class="panel-heading">
+									<h3 class="panel-title"><i class="fa fa-fw fa-desktop"></i> Display Employees</h3>
+								</div>
+								<div class="panel-body">
+									<div class="table-responsive">
+										<table id="table_id" class="table table-bordered table-striped table-hover table-condensed">
+											<thead>
+												<tr>
+													<th class="text-center">Employee ID</th>
+													<th class="text-center">Status</th>
+													<th class="text-center">Password</th>
+													<th class="text-center">First Name</th>
+													<th class="text-center">Last Name</th>
+													<th class="text-center">Contact No.</th>
+													<th class="text-center">E-mail Address</th>
+													<th class="text-center">Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+												if( isset($employ) && count($employ)>0 ){
+													foreach($employ as $person){
+														echo '
+															<tr>
+																<td class="text-center">'.$person['id'].'</td>
+																<td class="text-center">'.$person['stat'].'</td>
+																<td class="text-center">'.$person['pword'].'</td>
+																<td class="text-center">'.$person['fname'].'</td>
+																<td class="text-center">'.$person['sname'].'</td>
+																<td class="text-center">'.$person['cno'].'</td>
+																<td class="text-center">'.$person['ead'].'</td>
+																<td class="text-center"><a href="views/view_update.php?id='.$person['id'].'&stat='.$person['stat'].'&pword='.$person['pword'].'&fname='.$person['fname'].'&sname='.$person['sname'].'&cno='.$person['cno'].'&ead='.$person['ead'].'" onclick=""><span class="btn btn-info">UPDATE</span></a>  <a href="Helpdesk.php?id='.$person['id'].'&action=delEmp" onclick="delClick()"><span class="btn btn-danger">DELETE</span></a><td>
+															</tr>
+															';
+													}
+												}
+												?>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.row -->
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- /#page-wrapper -->
+
+		</div>
+		<!-- /#wrapper -->
+
+		<!-- jQuery -->
+		<script src="jquery.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Morris Charts JavaScript -->
+		<script src="js/plugins/morris/raphael.min.js"></script>
+		<script src="js/plugins/morris/morris.min.js"></script>
+		<script src="js/plugins/morris/morris-data.js"></script>
+		
+		
+		<script type="Text/JavaScript">
+			$(document).ready( function () {
+				$('#table_id').DataTable();
+			} );
+			
+			function delClick(){
+				var x=confirm("Do you want to delete?");
+				
+				if(x==true){
+					
+				}
+				else {
+					event.preventDefault();
+				}
+			}
+		</script>
+	</body>
+</html>
