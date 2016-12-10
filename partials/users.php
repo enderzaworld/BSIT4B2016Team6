@@ -30,5 +30,8 @@ if(isset($_POST['acc_user'])&&isset($_POST['acc_pass'])){//submit
 		</div>';
 	}
 }
+?>
+<h3>Register</h3>
+<?php
 require_once('suform.php');
 ?>

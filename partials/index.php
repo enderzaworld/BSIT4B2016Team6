@@ -123,6 +123,8 @@ if(isset($_GET['appForm'])){
 	switch($_GET['appForm']){
 		case "Users": require_once("users.php"); break;
 		case "Barangay Clearance": require_once("clearance.php"); break;
+		case "Indigency": require_once("indigency.php"); break;
+		case "TODA": require_once("toda.php"); break;
 		default: makeBtns();
 	}
 }else{ makeBtns(); } ?>

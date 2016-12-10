@@ -46,12 +46,8 @@
         </form> -->
     </div>
 </nav>
-        <!-- end navbar top -->
-
-       
-        
 		
-        <!--  page-wrapper -->
+			<!--  page-wrapper -->
         <div id="page-wrapper">
 
             <div class="row">
@@ -66,35 +62,41 @@
                 <!-- Welcome -->
                 <div class="col-lg-12">
                     <div class="alert alert-info">
-                        <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome Back <b> Admin </b>
+                        <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome Back <b> Danica Limon </b>
                     </div>
                 </div>
                 <!--end  Welcome -->
             </div>
 
             <div class="row">
-				<div class="col-md-12">
-					<div><h3>Requests</h3></div>
-					<table border="1" width="100%">
-						<thead>
-							<tr>
-								<td class="col-md-3"><h4>Name</h4></td>
-								<td class="col-md-3"><h4>File</h4></td>
-								<td class="col-md-3"><h4>Date</h4></td>
-								<td class="col-md-3"><h4>Status</h4></td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="col-md-3">&nbsp;</td>
-								<td class="col-md-3">&nbsp;</td>
-								<td class="col-md-3">&nbsp;</td>
-								<td class="col-md-3">&nbsp;</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-                
+                <!--quick info section -->
+                <div class="col-lg-4">
+                    <div class="alert alert-danger text-center">
+                        <i class="fa fa-check-circle fa-3x"></i>&nbsp;</b> Barangay Clearance 
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="alert alert-success text-center">
+                        <i class="fa  fa-pencil fa-3x"></i>&nbsp;</b> Indigency Form  
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="alert alert-info text-center">
+                        <i class="fa fa-road fa-3x"></i>&nbsp;</b> TODA Form
+                    </div>
+                </div>
+				<div class="col-lg-4">
+                    <div class="alert alert-warning text-center">
+                        <i class="fa  fa-certificate fa-3x"></i>&nbsp;</b> Cedula Form
+                    </div>
+                </div>
+				<div class="col-lg-4">
+                    <div class="alert alert-danger text-center">
+                        <i class="fa  fa-home fa-3x"></i>&nbsp;</b> Residencial ID
+                    </div>
+                </div>
+                <!--end quick info section -->
 				
 				
 				
