@@ -1,7 +1,63 @@
 <?php
-$labels	=	array('Username','Password','Full Name','Address','Citizenship','Sex','Civil Status','Birthdate','Birthplace','Height','Weight','May Trabaho','Trabaho','Sahod','Tin No.','Contact no','Contact Person',"Contact Person's no.");
-$dataName	=	array('acc_user','acc_pass','info_name','info_address','info_citizenship','info_sex','info_civil_status','info_birthdate','info_birthplace','info_height','info_weight','info_may_trabaho','info_trabaho','info_sahod','info_tin_no','info_contact_no','info_contact_person','info_contact_person_no');
-$dataType	=	array('text','password','text','text','text','sex','civilstatus','date','text','number','number','checkbox','text','number','number','text','text','text');
+$labels	=	array(
+	'Username',
+	'Password',
+	'Full Name',
+	'Address',
+	'Citizenship',
+	'Sex',
+	'Civil Status',
+	'Birthdate',
+	'Birthplace',
+	'Height',
+	'Weight',
+	'May Trabaho',
+	'Trabaho',
+	'Sahod',
+	'Tin No.',
+	'Contact no',
+	'Contact Person',
+	"Contact Person's no."
+	);
+$dataName	=	array(
+	'acc_user',
+	'acc_pass',
+	'info_name',
+	'info_address',
+	'info_citizenship',
+	'info_sex',
+	'info_civil_status',
+	'info_birthdate',
+	'info_birthplace',
+	'info_height',
+	'info_weight',
+	'info_may_trabaho',
+	'info_trabaho',
+	'info_sahod',
+	'info_tin_no',
+	'info_contact_no',
+	'info_contact_person',
+	'info_contact_person_no'
+	);
+$dataType	=	array(
+	'text',
+	'password',
+	'text',
+	'text',
+	'text',
+	'sex',
+	'civilstatus',
+	'date',
+	'text',
+	'number',
+	'number',
+	'checkbox',
+	'text',
+	'number',
+	'number',
+	'text',
+	'text',
+	'text');
 
 if(isset($_POST['acc_user'])&&isset($_POST['acc_pass'])){//submit
 	require_once('config.php');
