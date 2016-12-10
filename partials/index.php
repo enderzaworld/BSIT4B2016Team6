@@ -94,14 +94,12 @@ function makeBtns(){
 		</div>
 		<div class="col-sm-1"></div>
 <?php
-	}else{
+	}else if(!isset($_SESSION['Ad'])||isset($_SESSION['Ad'])&&$_SESSION['Ad']!=1){
 	?>
 		<div class="col-sm-1"></div>
 		<div class="col-sm-10">
-			<h3>Welcome, you may now apply for the following:</h3>
-			<a class="dropdown-item" href="?appForm=Barangay Clearance"><button class="btn btn-primary col-xs-12">Barangay Clearance</button></a>
-			<a class="dropdown-item" href="?appForm=Indigency"><button class="btn btn-primary col-xs-12">Indigency</button></a>
-			<a class="dropdown-item" href="?appForm=TODA"><button class="btn btn-primary col-xs-12">TODA</button></a>
+			<h3>Welcome, you must register to proceed</h3>
+			<a class="dropdown-item" href="?appForm=Users"><button class="btn btn-primary col-xs-12">Register</button></a>
 		</div>
 		<div class="col-sm-1"></div>
 <?php
@@ -123,7 +121,7 @@ if(isset($_GET['appView'])){
 }else
 if(isset($_GET['appForm'])){
 	switch($_GET['appForm']){
-		case "Users": break;
+		case "Users": require_once("users.php"); break;
 		case "Barangay Clearance": require_once("clearance.php"); break;
 		default: makeBtns();
 	}

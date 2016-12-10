@@ -2,6 +2,13 @@
 <?php
 foreach($labels as $key => $label){
 	switch($dataType[$key]){
+		case "datenowd":
+?>
+  <div class="form-group">
+    <label for="<?php echo $dataName[$key]; ?>"><?php echo $label; ?></label>
+    <input readonly type="text" class="form-control" name="<?php echo $dataName[$key]; ?>" id="<?php echo $dataName[$key]; ?>" placeholder="<?php echo $label; ?>" value="<?php if(isset($_POST[$dataName[$key]])){echo $_POST[$dataName[$key]];}else{echo date("m/d/Y");} ?>">
+  </div>
+<?php	break;
 		case "sex":
 ?>
   <div class="form-group">

@@ -14,13 +14,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 			
 			if(count($result)>0){
 				$_SESSION['user']=$result['acc_user'];
-				$_SESSION['acid']=$result['acc_id'];
+				$_SESSION['id']=$result['acc_id'];
 				$_SESSION['ulevel']=$result['acc_type'];
 				$url='localhost/bgs';
 
-				if(isSet($_SESSION['ulevel']) && $_SESSION = 1){header("Location: http://". $url ."/partials/index.php");} 
+				if(isSet($_SESSION['ulevel']) && $_SESSION['ulevel'] == 1){header("Location: http://". $url ."/partials/index.php");} 
 
-				else if(isSet($_SESSION['ulevel']) && $_SESSION = 2){header("Location:");}
+				else if(isSet($_SESSION['ulevel']) && $_SESSION['ulevel'] == 2){header("Location: http://". $url ."/partials/index.php");}
 			}
 			else {
 				echo '<script>alert("Wrong Credentials Provided");</script>';
