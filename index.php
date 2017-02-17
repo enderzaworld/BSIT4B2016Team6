@@ -68,13 +68,14 @@ $(document).ready(function(){
 	
 	$(".menu").mouseup(function(){
 		if(!loading){
+			var thisElem = $(this);
 			$.ajax({
 			type: 'GET',
-			url: 'partials/'+$(this).find('a').attr('href').substring(1)+'.php',
+			url: 'partials/'+thisElem.find('a').attr('href').substring(1)+'.php',
 			timeout: 2000,
 			success: function(data) {
 				$(".menu").removeClass("selected");
-				$(this).addClass("selected");
+				thisElem.addClass("selected");
 				$("#contents").html(data);
 				//myFunction();
 				var arr = $("#contents").find('script')
