@@ -17,23 +17,30 @@
 		<div id="logo">
 			<a href="index.html"><img src="images/tup-logo.png" alt="LOGO" height="110" width="110">&nbsp;Technological University of the Philippines</a>
 		</div>
-		<div id="navigation">
-			<ul>
-				<li id="menuHome" class="menu selected">
-					<a href="#home">Home</a>
-				</li>
-				<li id="menuProfile" class="menu">
-					<a href="#users">Profile</a>
-				</li>
-				<li id="menuDocuments" class="menu">
-					<a href="#documents">Documents</a>
-				</li>
-			</ul>
-		</div>
+		<nav id="navigation" class="navbar navbar-default">
+			<div class="container-fluid">
+				<!--<div class="navbar-header">
+					<a class="navbar-brand" href="#">WebSiteName</a>
+				</div>-->
+				<ul class="nav navbar-nav">
+					<li id="menuHome" class="menu active">
+						<a href="#home">Home</a>
+					</li>
+					<li id="menuProfile" class="menu">
+						<a href="#users">Profile</a>
+					</li>
+					<li id="menuDocuments" class="menu">
+						<a href="#documents">Documents</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 	</div>
 </div>
 
 <div id="page">
+	<br />
+	<br />
 	<br />
 	<br />
 	<br />
@@ -74,8 +81,8 @@ $(document).ready(function(){
 			url: 'partials/'+thisElem.find('a').attr('href').substring(1)+'.php',
 			timeout: 2000,
 			success: function(data) {
-				$(".menu").removeClass("selected");
-				thisElem.addClass("selected");
+				$(".menu").removeClass("active");
+				thisElem.addClass("active");
 				$("#contents").html(data);
 				//myFunction();
 				var arr = $("#contents").find('script')
@@ -91,14 +98,14 @@ $(document).ready(function(){
 	});
 	
 	//first load
-	var firstselected = $(".menu.selected");
+	var firstselected = $(".menu.active");
 	$.ajax({
 	type: 'GET',
 	url: 'partials/'+firstselected.find('a').attr('href').substring(1)+'.php',
 	timeout: 2000,
 	success: function(data) {
-		$(".menu").removeClass("selected");
-		firstselected.addClass("selected");
+		$(".menu").removeClass("active");
+		firstselected.addClass("active");
 		$("#contents").html(data);
 		//myFunction();
 		var arr = $("#contents").find('script')

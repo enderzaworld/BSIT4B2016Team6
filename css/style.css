@@ -79,20 +79,26 @@ img {
 /** Navigation **/
 #navigation {
 	background: url(../images/bg-nav.png) no-repeat;
-	height: 49px;
+    background-size: cover;
+	/*height: 49px;*/
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
 	top: 0;
+	float: none;
 }
 #navigation ul {
-	display: inline-block;
+	/*display: inline-block;*/
+	display: flex;
+	width: 100%;
 	list-style: none;
 	margin: 0;
 	padding: 1px 10px;
+	flex-direction: row;
 }
 #navigation li {
-	float: left;
+	float: none;
+	flex-grow:1;
 }
 #navigation li a {
 	color: #636974;
@@ -100,7 +106,7 @@ img {
 	font-size: 14px;
 	font-weight: bold;
 	line-height: 47px;
-	width:443px;
+	width:100%;
 	border-color: transparent;
 	border-style: none solid;
 	border-width: 1px;
