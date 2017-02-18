@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2017 at 02:59 PM
+-- Generation Time: Feb 18, 2017 at 11:33 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,6 +83,8 @@ CREATE TABLE IF NOT EXISTS `documents_trace_history` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
   `Last_Name` varchar(255) NOT NULL,
   `First_Name` varchar(255) NOT NULL,
   `Middle_Name` varchar(255) NOT NULL,
