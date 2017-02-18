@@ -85,7 +85,10 @@ img {
 	margin: 0 auto;
 	position: relative;
 	top: 0;
-	float: none;
+}
+#navigation div {
+	flex-direction: row;
+	flex-grow:1;
 }
 #navigation ul {
 	/*display: inline-block;*/
@@ -95,10 +98,10 @@ img {
 	margin: 0;
 	padding: 1px 10px;
 	flex-direction: row;
+	/*flex-grow:1;*/
 }
 #navigation li {
-	float: none;
-	flex-grow:1;
+	/*flex-grow:1;*/
 }
 #navigation li a {
 	color: #636974;
