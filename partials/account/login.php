@@ -11,7 +11,7 @@
 </div>
 
 <!-- Simple Login - START -->
-<form class="col-md-12" action="./?login" name="form" method="POST">
+<form class="col-md-12" action="./index.php/login" name="form" method="POST">
     <div class="form-group">
         <input name="user" type="text" required class="form-control input-lg" placeholder="user">
     </div>

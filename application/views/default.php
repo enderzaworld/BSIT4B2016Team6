@@ -1,51 +1,3 @@
-<?php
-if(!isset($_SESSION['id'])){
-	if(isset($_POST['user'])&&isset($_POST['passw'])){
-		$this->load->database();
-			/*// $conn = connect_data();
-			// if(mysqli_connect_errno($conn)){
-			// 	echo "Failed to connect. <br />";
-			// 	echo'
-			// 			<script type="text/javascript">
-			// 			<!--
-			// 				window.location="./?failconn&action=login";
-			// 			//-->
-			// 			</script>';
-			// 	echo myqli_connect_error();
-			// }else*/{
-				$sql="SELECT `user_id`,`user_name` FROM `users` WHERE `user_name` LIKE '".$_POST['user'].
-				"' AND `user_password` like '".$_POST['passw']."' ";
-				/*$result = mysqli_query($conn,$sql);*/
-				$query = $this->db->query($sql);
-
-				if($res=$query->result()){
-						$_SESSION['id']=$res['user_id'];
-						$_SESSION['user']=$res['user_name'];
-						echo'
-						<script type="text/javascript">
-						<!--
-							window.location="./";
-						//-->
-						</script>';
-				}else{
-					echo'
-						<script type="text/javascript">
-						<!--
-							window.onload = function () { alert("Wrong user name and/or password"); }
-						//-->
-						</script>';
-				}
-			}
-	}
-}else{
-	echo'
-		<script type="text/javascript">
-		<!--
-			window.location="./";
-		//-->
-		</script>';
-}
-?>
 <!DOCTYPE html>
 
 <html>
@@ -62,47 +14,62 @@ if(!isset($_SESSION['id'])){
 
 <div id="header">
 	<div class="background">
-	<ul class="nav navbar-nav navbar-right" style="font-size: 15px;">
-					<li class="menu">
-						<a href="#account\register">Register</a>
-					</li>
-					<li class="menu">
-						<a href="#account\login">Login</a>
-					</li>
-			</ul>
-		<div id="logo">
-			
-			<a href="index.html"><img src="images/tup-logo.png" alt="LOGO" height="110" width="110">&nbsp;Technological University of the Philippines</a>
-		</div>
-		<nav id="navigation" class="navbar navbar-default">
-			<div class="container-fluid">
-				<!--<div class="navbar-header">
-					<a class="navbar-brand" href="#">WebSiteName</a>
-				</div>-->
-				<ul class="nav navbar-nav navbar-left">
-					<li class="menu active">
-						<a href="#home">Home</a>
-					</li>
-					<li class="menu">
-						<a href="#users">Profile</a>
-					</li>
-					<li class="menu">
-						<a href="#documents">Documents</a>
-					</li>
-				</ul>
-
-				
+		<div class="col-md-12 col-xs-12">
+			<div class="col-md-10 col-xs-12">
+				<div id="logo"> 
+					<div class="col-md-2 col-xs-4">
+						<a href="#"><img src="images/tup-logo.png" alt="LOGO" height="110" width="110"></a>
+					</div>
+					<div class="col-md-10 col-xs-8">
+						<a href="#">&nbsp;Technological University of the Philippines</a>
+					</div>
+				</div>
 			</div>
-		</nav>
+			<div class="col-md-2 col-xs-12">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<ul class="nav navbar-nav navbar-right" style="font-size: 15px;">
+							<li class="menu">
+								<a href="#account\register">Register</a>
+							</li>
+							<?php if(!isset($_SESSION['id'])){ ?>
+							<li class="menu">
+								<a href="#account\login">Login</a>
+							</li>
+							<?php }else{ ?>
+							<li>
+								<a href="index.php/logout">logout</a>
+							</li>
+							<?php } ?>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="col-md-12 col-xs-12">
+			<nav id="navigation" class="navbar navbar-default">
+				<div class="container-fluid">
+					<!--<div class="navbar-header">
+						<a class="navbar-brand" href="#">WebSiteName</a>
+					</div>-->
+					<ul class="nav navbar-nav navbar-left">
+						<li class="menu active">
+							<a href="#home">Home</a>
+						</li>
+						<li class="menu">
+							<a href="#users">Profile</a>
+						</li>
+						<li class="menu">
+							<a href="#documents">Documents</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	</div>
 </div>
 
 <div id="page">
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
 	<div id="contents">
 		
 	</div>

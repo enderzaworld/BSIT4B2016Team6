@@ -55,6 +55,8 @@ $route['default_controller'] = 'welcome';
 // $route['partials/home'] = 'partials/home';
 // $route['partials/users'] = 'partials/users';
 // $route['partials/documents'] = 'partials/documents';
+$route['login'] = 'welcome/login';
+$route['logout'] = 'welcome/logout';
 
 
 $route['404_override'] = 'errors/page_missing';
