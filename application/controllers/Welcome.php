@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 		$this->load->library('session');
 		$this->session->sess_destroy();
 		$this->load->library('session');
-		redirect(base_url(), 'location', 0);
+		redirect(base_url(), 'location');
 	}
 
 	public function partials(){
