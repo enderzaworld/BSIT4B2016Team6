@@ -7,18 +7,21 @@
 	font-style: normal;
 }
 body {
-	background: url(../images/bg-body.jpg) repeat left top;
+	background: url(../images/bg-body.jpg) no-repeat left top;
+    background-size: cover;
 	font-family: Arial, Helvetica, sans-serif;
-	min-width: 960px;
+	width: 100%;
 	margin: 0;
 }
 .background {
-	background: url(../images/bg-pattern-red.jpg) repeat left top;
+	background: url(../images/bg-pattern-red.jpg) no-repeat;
+    background-size: cover;
+	width: 100%;
 }
 #page {
-	width: 960px;
+	width: 100%;
 	margin: 0 auto;
-	padding: 156px 0 0;
+	padding: 30px;
 }
 img {
 	border: 0;
@@ -26,9 +29,11 @@ img {
 /*------------------------------ SPRITES ------------------------------*/
 #footer ul li a {
 	background: url(../images/icons.png) no-repeat;
+    background-size: cover;
 }
 #message input[type='submit'], .more {
 	background: url(../images/bg-buttons.png) no-repeat;
+    background-size: cover;
 }
 .more {
 	background-position: 0 -35px;
@@ -52,26 +57,33 @@ img {
 #header {
 	width: 100%;
 	border-bottom: 5px solid #c3c3c3;
-	position: absolute;
+	/*position: none;*/
 	left: 0;
 	top: 0;
 }
 #header .background {
-	height: 150px;
+	/*min-height: 150px;*/
+	display:block;
+	overflow:auto;
 	border-bottom: 1px solid #b6051c;
 }
 /** Logo **/
 #logo {
 	font-family: 'DaysOne-Regular';
-	font-size: 25px;
+	/*font-size: 22px;*/
+	font-size: 3vw;
 	font-weight: normal;
-	line-height: 100px;
-	width: 960px;
+	text-align: center;
+	/*line-height: 100px;*/
+	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
+	display:block;
+	overflow:auto;
 }
 #logo a {
 	color: #fff;
+	vertical-align: middle;
 	text-decoration: none;
 	text-transform: uppercase;
 
@@ -101,7 +113,7 @@ img {
 	/*flex-grow:1;*/
 }
 #navigation li {
-	/*flex-grow:1;*/
+	flex-grow:1;
 }
 #navigation li a {
 	color: #636974;
@@ -444,7 +456,7 @@ ul.list li h5 + img {
 	border-top: 1px solid #b6051c;
 }
 #footer .body {
-	width: 960px;
+	/*width: 960px;*/
 	margin: 0 auto;
 	padding: 40px 0 20px;
 }
