@@ -39,6 +39,11 @@ class Welcome extends CI_Controller {
 		$this->load->library('session');
 		redirect(base_url(), 'location');
 	}
+	public function message(){
+		$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->view('folder/message.php');
+	}
 
 	public function partials(){
 		$this->load->helper('url');

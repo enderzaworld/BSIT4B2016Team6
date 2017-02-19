@@ -18,6 +18,14 @@ class account extends CI_Model{
 		return $this->db->escape($string);
 	}
 
+	public function delayedRedirect($message,$redirectStr,$time=5){
+	    $this->session->set_flashdata('message_id', $message);//message rendered
+	    $this->session->set_flashdata('seconds_redirect', $time);//time to be redirected (in seconds)
+	    $this->session->set_flashdata('url_redirect', $redirectStr);//url to be redirected       base_url('controller/method')
+
+	    redirect('folder/message', 'refresh');
+	}
+
 	public function login_validation(){
 		if(!isset($_SESSION['id'])){
 			/*if ($this->form_validation->run() == FALSE) {
@@ -44,6 +52,7 @@ class account extends CI_Model{
 						//-->
 						</script>';
 				}else{
+					$this->delayedRedirect("Wrong user name and/or password<br />Redirecting....",base_url()."#account/login");
 					echo'redirecting....
 						<script type="text/javascript">
 						<!--
@@ -55,6 +64,7 @@ class account extends CI_Model{
 						</script>';
 				}
 		}else{
+				$this->delayedRedirect("Already have session<br />Redirecting....",base_url());
 			echo'redirecting....
 				<script type="text/javascript">
 				<!--

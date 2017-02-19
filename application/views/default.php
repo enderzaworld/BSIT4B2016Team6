@@ -30,11 +30,11 @@
 					<div class="container-fluid">
 						<ul class="nav navbar-nav navbar-right" style="font-size: 15px;">
 							<li class="menu">
-								<a href="#account\register">Register</a>
+								<a href="#account/register">Register</a>
 							</li>
 							<?php if(!isset($_SESSION['id'])){ ?>
 							<li class="menu">
-								<a href="#account\login">Login</a>
+								<a href="#account/login">Login</a>
 							</li>
 							<?php }else{ ?>
 							<li>
@@ -124,23 +124,44 @@ $(document).ready(function(){
 	});
 	
 	//first load
-	var firstselected = $(".menu.active");
-	$.ajax({
-	type: 'GET',
-	url: 'partials/'+firstselected.find('a').attr('href').substring(1)+'.php',
-	timeout: 2000,
-	success: function(data) {
-		$(".menu").removeClass("active");
-		firstselected.addClass("active");
-		$("#contents").html(data);
-		//myFunction();
-		var arr = $("#contents").find('script')
-		for (var n = 0; n < arr.length; n++)
-			eval(arr[n].innerHTML)
-	},
-	error: function (XMLHttpRequest, textStatus, errorThrown) {
-	  alert("error retrieving content:");
-	}});
+	var str = window.location.href;
+	if(str.substring(str.lastIndexOf('#')).length>0){
+		var firstselected = $("a[href$='"+str.substring(str.lastIndexOf('#'))+"']").parent();
+		$.ajax({
+		type: 'GET',
+		url: 'partials/'+firstselected.find('a').attr('href').substring(1)+'.php',
+		timeout: 2000,
+		success: function(data) {
+			$(".menu").removeClass("active");
+			firstselected.addClass("active");
+			$("#contents").html(data);
+			//myFunction();
+			var arr = $("#contents").find('script')
+			for (var n = 0; n < arr.length; n++)
+				eval(arr[n].innerHTML)
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+		  alert("error retrieving content:");
+		}});
+	}else{
+		var firstselected = $(".menu.active");
+		$.ajax({
+		type: 'GET',
+		url: 'partials/'+firstselected.find('a').attr('href').substring(1)+'.php',
+		timeout: 2000,
+		success: function(data) {
+			$(".menu").removeClass("active");
+			firstselected.addClass("active");
+			$("#contents").html(data);
+			//myFunction();
+			var arr = $("#contents").find('script')
+			for (var n = 0; n < arr.length; n++)
+				eval(arr[n].innerHTML)
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+		  alert("error retrieving content:");
+		}});
+	}
 });
 </script>
 </body>
