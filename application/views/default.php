@@ -7,15 +7,15 @@
 	<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
 	<script src="plugins/datatables/jquery.dataTables.min.js"></script>
 	<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 
 <div id="header">
 	<div class="background">
 		<div class="col-md-12 col-xs-12">
-			<div class="col-md-10 col-xs-12">
+			<!-- <div class="col-md-10 col-xs-12">
 				<div id="logo"> 
 					<div class="col-md-2 col-xs-4">
 						<a href="#"><img src="images/tup-logo.png" alt="LOGO" height="110" width="110"></a>
@@ -24,11 +24,19 @@
 						<a href="#">&nbsp;Technological University of the Philippines</a>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-2 col-xs-12">
-				<nav class="navbar navbar-default">
+			</div> -->
+			<div class="col-md-12 col-xs-12">
+				<nav class="background navbar navbar-inverse">
+				<div id="logo"> 
+					<div class="col-md-2 col-xs-4">
+						<a href="#"><img src="images/tup-logo.png" alt="LOGO" height="110" width="110"></a>
+					</div>
+					<div class="col-md-10 col-xs-8">
+						<a href="#">&nbsp;Technological University of the Philippines</a>
+					</div>
+				</div>
 					<div class="container-fluid">
-						<ul class="nav navbar-nav navbar-right" style="font-size: 15px;">
+						<ul class="nav navbar-nav navbar-right">
 							<li class="menu">
 								<a href="#account/register">Register</a>
 							</li>
