@@ -1,6 +1,10 @@
 <?php
 
 class Department_model extends CI_Model{
+
+    //public $department_id;
+    public $department_name;
+
 	public function __construct(){
 		parent::__construct();
 	}
@@ -18,35 +22,48 @@ class Department_model extends CI_Model{
 			return array("Fail");
 		}
 	}
-/*
-	public function Login_check_($uname, $upass){
-		$this->db->select('user_name,user_password,user_id, Last_Name');
-		$checkLoginQuery = $this->db->get_where('users', array('user_name' => $uname, 'user_password' => $upass));
+
+	public function getDepartmentById($deptId){
+		$this->db->select('department_id,department_name');
+		$checkLoginQuery = $this->db->get_where('department', array('department_id' => $deptId));
 
 		$resultNum = $checkLoginQuery->num_rows();
 
 		if($resultNum >= 1){
-			return array("Success",$checkLoginQuery->row(2)->user_id,$checkLoginQuery->row(0)->Email_Address,$checkLoginQuery->row(3)->Last_Name);
+			return array("Success",$checkLoginQuery);
 		}
 		else{
 			return array("Fail");
 		}
 	}
 
-	public function check_email_login(){
-		$email = $this->input->post('emailID', TRUE);
+	public function getDepartmentByName($deptName){
+		$this->db->select('department_id,department_name');
+		$checkLoginQuery = $this->db->get_where('department', array('department_name' => $deptName));
 
-		$emailCheckQuery = $this->db->query("SELECT Email_Address FROM users WHERE user_name LIKE '".$this->db->escape_str($email)."'");
+		$resultNum = $checkLoginQuery->num_rows();
 
-		$rowCount = $emailCheckQuery->num_rows();
-
-		if($rowCount > 0){
-			echo "0"; //Email REGISTERED
+		if($resultNum >= 1){
+			return array("Success",$checkLoginQuery);
 		}
 		else{
-			echo "1"; //Email NOT REGISTERED
+			return array("Fail");
 		}
-	}*/
+	}
+
+    public function insertNewDepartment($name){
+            $this->department_name  = $name;
+            $this->db->insert('department', $this);
+    }
+
+    public function updateDepartment($id,$name){
+            $this->department_name  = $name;
+            $this->db->update('department', $this, array('department_id' => $id));
+    }
+
+    public function deleteDepartment($id){
+            $this->db->delete('department', $this, array('department_id' => $id));
+    }
 }
 
 
