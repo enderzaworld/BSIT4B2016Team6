@@ -72,6 +72,31 @@ class Documents_model extends CI_Model{
 		}
 	}
 
+	public function getDocumentsByArray($array){//date1,date2
+		if(isset($array['date1'])&&isset($array['date2'])){
+			$date1 = $this->esc($array['date1']);
+			$date2 = $this->esc($array['date2']);
+			unset($array['date1']);
+			unset($array['date2']);
+		}
+
+		$this->db->select('document_id,document_name,document_date');
+		$queryResult = $this->db->get_where('documents', $array);
+
+		if(isset($date1)&&isset($date2)){
+			$queryResult = $this->db->where("`document_date` BETWEEN ".$date1." AND ".$date2." ");
+		}
+
+		$resultNum = $queryResult->num_rows();
+
+		if($resultNum >= 1){
+			return array("Success",$queryResult);
+		}
+		else{
+			return array("Fail");
+		}
+	}
+
 	public function getDocumentsBetweenDates($docDate1,$docDate2){
 		$docDate1 = $this->esc($docDate1);
 		$docDate2 = $this->esc($docDate2);
