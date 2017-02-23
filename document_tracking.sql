@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 11:43 AM
+-- Generation Time: Feb 23, 2017 at 02:34 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `documents_trace_history` (
   `document_trace_id` int(11) NOT NULL AUTO_INCREMENT,
   `department_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `document_trace_date` timestamp NOT NULL,
+  `document_trace_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `document_id` int(11) NOT NULL,
   PRIMARY KEY (`document_trace_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `Last_Name`, `First_Name`, `Middle_Name`, `Email_Address`, `Date_of_Birth`, `Gender`, `Marital_Status`, `Contact_Number`, `department_id`) VALUES
-(1, 'admin', 'admin', 'Man', 'Super', '', '', '0000-00-00', 'Undecided', 'Virgin', '', NULL);
+(1, 'admin', 'admin', 'Man', 'Super', '', 'im@some.com', '0000-00-00', 'Undecided', 'Virgin', '', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
