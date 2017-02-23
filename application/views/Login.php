@@ -18,7 +18,7 @@
                 <?php endif; ?>
                 <form action="Login/login_check_" method="post" enctype="multipart/form-data">
                     <label for="uName">Enter Email ID : </label>
-                    <input type="email" name="uName" id="emailID" class="form-control" required/>
+                    <input type="text" name="uName" id="userId" class="form-control" required/>
                     <span class="errorUname"></span><br />
                     <label for="uPass">Enter Password :  </label>
                     <input type="password" name="uPass" id="password" class="form-control" required/>
@@ -52,12 +52,12 @@
     </div>
 </div>
 <script type="text/javascript">
-var emailID = "";
+var userId = "";
 
-$('#emailID').keyup(function()
+$('#userId').keyup(function()
 {
-    emailID = document.getElementById('emailID').value;
-    if(emailID.length < 5 && emailID.length >= 1){
+    userId = document.getElementById('userId').value;
+    if(userId.length < 5 && userId.length >= 1){
         $(".errorUname").html("<i style='color:red'>Minimum of 5 characters</i>");
         document.getElementById("submit").disabled = true;
     }
@@ -68,7 +68,7 @@ $('#emailID').keyup(function()
         $.ajax({
             type: "POST",
             url:"<?php echo base_url(); ?>Login/check_email_login",
-            data:{emailID},
+            data:{userId},
             cache:false,
             success:function(r){
                 if(r == "1"){

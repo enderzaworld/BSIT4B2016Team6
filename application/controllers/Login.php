@@ -14,6 +14,10 @@ class Login extends CI_Controller{
 		$this->load->view('masterView', $data);
 	}
 
+	public function esc($string){
+		return $this->db->escape($string);
+	}
+
 	public function login_check_(){
 		$config = array(
 			array(

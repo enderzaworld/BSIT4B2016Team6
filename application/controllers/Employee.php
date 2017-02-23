@@ -11,6 +11,10 @@ class Employee extends CI_Controller{
 		$this->load->view('masterView', $data);
 	}
 
+	public function esc($string){
+		return $this->db->escape($string);
+	}
+
 	public function logout(){
 		$this->session->sess_destroy();
 		$this->session->unset_userdata('user_id');

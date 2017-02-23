@@ -6,8 +6,8 @@ class Account_model extends CI_Model{
 	}
 
 	public function Login_check_($uname, $upass){
-		$this->db->select('Email_Address,Password,user_id, Last_Name');
-		$checkLoginQuery = $this->db->get_where('users', array('Email_Address' => $uname, 'Password' => $upass));
+		$this->db->select('user_name,user_password,user_id, Last_Name');
+		$checkLoginQuery = $this->db->get_where('users', array('user_name' => $uname, 'user_password' => $upass));
 
 		$resultNum = $checkLoginQuery->num_rows();
 
@@ -22,7 +22,7 @@ class Account_model extends CI_Model{
 	public function check_email_login(){
 		$email = $this->input->post('emailID', TRUE);
 
-		$emailCheckQuery = $this->db->query("SELECT Email_Address FROM users WHERE Email_Address LIKE '".$this->db->escape_str($email)."'");
+		$emailCheckQuery = $this->db->query("SELECT Email_Address FROM users WHERE user_name LIKE '".$this->db->escape_str($email)."'");
 
 		$rowCount = $emailCheckQuery->num_rows();
 
