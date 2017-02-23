@@ -12,7 +12,7 @@ class Account_model extends CI_Model{
 		$resultNum = $checkLoginQuery->num_rows();
 
 		if($resultNum >= 1){
-			return array("Success",$checkLoginQuery->row(2)->user_id,$checkLoginQuery->row(0)->Email_Address,$checkLoginQuery->row(3)->Last_Name);
+			return array("Success",$checkLoginQuery->row(2)->user_id,$checkLoginQuery->row(0)->user_name,$checkLoginQuery->row(3)->Last_Name);
 		}
 		else{
 			return array("Fail");
