@@ -20,33 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
-		$this->load->library('session');
-		$this->load->view('default');
-	}
-
-	public function login(){
-		$this->load->helper('url');
-		$this->load->library('session');
-		$this->load->model('account');
-		$this->account->login_validation();
-	}
-
-	public function logout(){
-		$this->load->helper('url');
-		$this->load->library('session');
-		$this->session->sess_destroy();
-		$this->load->library('session');
-		redirect(base_url(), 'location');
-	}
-	public function message(){
-		$this->load->helper('url');
-		$this->load->library('session');
-		$this->load->view('folder/message.php');
-	}
-
-	public function partials(){
-		$this->load->helper('url');
-		$this->load->view('default');
+		$this->load->view('welcome_message');
 	}
 }
