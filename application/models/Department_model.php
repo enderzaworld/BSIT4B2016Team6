@@ -9,14 +9,18 @@ class Department_model extends CI_Model{
 		parent::__construct();
 	}
 
+	public function esc($str){
+		return $this->db->escape_str($str);
+	}
+
 	public function getDepartments(){
 		$this->db->select('department_id,department_name');
-		$checkLoginQuery = $this->db->get_where('department', array('1' => "1"));
+		$queryResult = $this->db->get_where('department', array('1' => "1"));
 
-		$resultNum = $checkLoginQuery->num_rows();
+		$resultNum = $queryResult->num_rows();
 
 		if($resultNum >= 1){
-			return array("Success",$checkLoginQuery);
+			return array("Success",$queryResult);
 		}
 		else{
 			return array("Fail");
@@ -25,12 +29,12 @@ class Department_model extends CI_Model{
 
 	public function getDepartmentById($deptId){
 		$this->db->select('department_id,department_name');
-		$checkLoginQuery = $this->db->get_where('department', array('department_id' => $deptId));
+		$queryResult = $this->db->get_where('department', array('department_id' => $deptId));
 
-		$resultNum = $checkLoginQuery->num_rows();
+		$resultNum = $queryResult->num_rows();
 
 		if($resultNum >= 1){
-			return array("Success",$checkLoginQuery);
+			return array("Success",$queryResult);
 		}
 		else{
 			return array("Fail");
@@ -39,12 +43,12 @@ class Department_model extends CI_Model{
 
 	public function getDepartmentByName($deptName){
 		$this->db->select('department_id,department_name');
-		$checkLoginQuery = $this->db->get_where('department', array('department_name' => $deptName));
+		$queryResult = $this->db->get_where('department', array('department_name' => $deptName));
 
-		$resultNum = $checkLoginQuery->num_rows();
+		$resultNum = $queryResult->num_rows();
 
 		if($resultNum >= 1){
-			return array("Success",$checkLoginQuery);
+			return array("Success",$queryResult);
 		}
 		else{
 			return array("Fail");
@@ -62,7 +66,7 @@ class Department_model extends CI_Model{
     }
 
     public function deleteDepartment($id){
-            $this->db->delete('department', $this, array('department_id' => $id));
+            $this->db->delete('department', array('department_id' => $id));
     }
 }
 
