@@ -9,9 +9,14 @@ class Login extends CI_Controller{
 	}
 
 	public function index(){
-		$data['userLogin'] = 'Login';
+		if($this->session->userdata('user_id')){
+			redirect('Employee');
+		}else{
+			$data['userLogin'] = 'Login';
 
-		$this->load->view('masterView', $data);
+		$this->load->view('masterView', $data);	
+		}
+		
 	}
 
 	public function esc($string){
@@ -69,11 +74,9 @@ class Login extends CI_Controller{
 		}	
 	}
 
-	public function check_email_login(){
-		$this->Account_model->check_email_login();
+	public function check_user_login(){
+		$this->Account_model->check_user_login();
 	}
 }
-
-
 
 ?>

@@ -134,7 +134,7 @@ header {
 /* MENU LINKS SECTION*/
 
 .menu-section {
-    background-color: #3D3D3D;
+    background-color: #222;
 }
 
 #menu-top a {
@@ -157,8 +157,8 @@ header {
     background-color: #F0677C!important;
 }
 
-.navbar-inverse {
-    background-color: blue;
+.navbar-inverse{
+    background-color: white;
     border-color: transparent;
 }
 
@@ -177,7 +177,7 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #C36464;
+    background-color: #222;
 }
 
     footer a, footer a:hover {

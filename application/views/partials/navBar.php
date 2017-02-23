@@ -7,8 +7,8 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <img src="<?php echo base_url(); ?>assets/img/tup-logo.png" height="75" width="75" style="float:left;"/>
-            <h1 style="float:right;color:white;">&nbsp Document Tracking System</h1>
+            <img src="<?php echo base_url(); ?>assets/img/tup-logo.png" height="110" width="110" style="float:left;"/>
+            <h1 style="float:right;color:#252525;margin-top:30px;">&nbsp Document Tracking System</h1>
         </div>
     </div>
 </div>

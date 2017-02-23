@@ -67,12 +67,12 @@ $('#userId').keyup(function()
 
         $.ajax({
             type: "POST",
-            url:"<?php echo base_url(); ?>Login/check_email_login",
+            url:"<?php echo base_url(); ?>Login/check_user_login",
             data:{userId},
             cache:false,
             success:function(r){
                 if(r == "1"){
-                    $(".errorUname").html("<i style='color:red'>Email address provided not registered</i>");
+                    $(".errorUname").html("<i style='color:red'>Username provided not registered</i>");
                     document.getElementById("submit").disabled = true;
                 }
             },

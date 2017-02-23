@@ -19,10 +19,10 @@ class Account_model extends CI_Model{
 		}
 	}
 
-	public function check_email_login(){
-		$email = $this->input->post('emailID', TRUE);
+	public function check_user_login(){
+		$email = $this->input->post('userId', TRUE);
 
-		$emailCheckQuery = $this->db->query("SELECT Email_Address FROM users WHERE user_name LIKE '".$this->db->escape_str($email)."'");
+		$emailCheckQuery = $this->db->query("SELECT user_name FROM users WHERE user_name LIKE '".$this->db->escape_str($email)."'");
 
 		$rowCount = $emailCheckQuery->num_rows();
 
